@@ -1,197 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarthi Balakrishnan | Data & MIS Analyst Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f8fafc;
-      color: #0f172a;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #0ea5e9, #2563eb);
-      color: white;
-      padding: 3rem;
-      text-align: center;
-    }
-    header h1 { margin: 0; font-size: 2.8rem; }
-    header p { font-size: 1.2rem; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    section {
-      padding: 3rem 8%;
-      max-width: 1200px;
-      margin: auto;
-    }
+<title>Aarthi Balakrishnan | Data Analyst Portfolio</title>
 
-    h2 { color: #2563eb; margin-bottom: 1rem; }
+<!-- ICONS -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
+<style>
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
+/* ================= ROOT ================= */
 
-    ul { padding-left: 1.2rem; }
+:root{
+--primary:#6366f1;
+--secondary:#22c55e;
+--accent:#f97316;
+--bg:#f8fafc;
+--text:#0f172a;
+--card:#ffffff;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #020617;
-      color: #cbd5f5;
-    }
+body.dark{
+--bg:#020617;
+--text:#e5e7eb;
+--card:#0f172a;
+}
 
-    a { color: #2563eb; text-decoration: none; }
-  </style>
+body{
+margin:0;
+font-family:Segoe UI,system-ui;
+background:var(--bg);
+color:var(--text);
+transition:.4s;
+line-height:1.7;
+}
+
+/* ================= HEADER ================= */
+
+header{
+background:radial-gradient(circle at top left,#6366f1,#2563eb,#0ea5e9);
+color:white;
+padding:5rem 2rem;
+text-align:center;
+}
+
+header h1{font-size:3rem;margin:0;}
+header p{opacity:.95;}
+
+.header-links a{
+color:white;
+font-size:1.4rem;
+margin:.4rem;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:1rem;
+background:white;
+color:#2563eb;
+padding:.6rem 1.2rem;
+border-radius:999px;
+font-weight:600;
+}
+
+/* ================= DARK BUTTON ================= */
+
+.toggle-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+border:none;
+color:white;
+padding:.6rem 1rem;
+border-radius:999px;
+cursor:pointer;
+z-index:999;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+padding:4rem 8%;
+max-width:1300px;
+margin:auto;
+}
+
+h2{
+font-size:2.2rem;
+background:linear-gradient(90deg,var(--primary),var(--accent));
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* ================= GRID / CARDS ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:2rem;
+}
+
+.card{
+background:var(--card);
+border-radius:22px;
+padding:2rem;
+box-shadow:0 25px 40px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* ================= BADGES ================= */
+
+.badge{
+display:inline-block;
+background:linear-gradient(135deg,var(--secondary),#4ade80);
+padding:.35rem .8rem;
+border-radius:999px;
+font-size:.75rem;
+color:white;
+margin:.25rem;
+}
+
+/* ================= KPI ================= */
+
+.kpis{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:2rem;
+text-align:center;
+}
+
+.kpi{
+font-size:2.6rem;
+font-weight:800;
+}
+
+/* ================= PROJECT IMAGE ================= */
+
+.project-img{
+width:100%;
+border-radius:14px;
+margin-bottom:1rem;
+box-shadow:0 12px 25px rgba(0,0,0,.2);
+cursor:pointer;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.modal-content{
+background:var(--card);
+padding:2rem;
+border-radius:20px;
+max-width:900px;
+width:90%;
+}
+
+.modal img{
+width:100%;
+border-radius:14px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+background:#020617;
+color:#c7d2fe;
+text-align:center;
+padding:3rem;
+}
+
+footer a{color:#818cf8;}
+
+</style>
 </head>
+
 <body>
 
+<!-- DARK MODE -->
+<button class="toggle-btn" onclick="toggleDark()">
+<i class="fa-solid fa-moon"></i>
+</button>
+
 <header>
-  <h1>Aarthi Balakrishnan</h1>
-  <p>Junior Data Analyst | MIS & Data Operations | Power BI • SQL • Excel • Python</p>
-  <p>Email: aarthipro2608@gmail.com | Phone: +91 6382760268</p>
+<h1>Aarthi Balakrishnan</h1>
+<p>Junior Data Analyst | MIS | Power BI • SQL • Python • Excel</p>
+
+<a href="resume.pdf" class="download-btn">
+<i class="fa-solid fa-file-arrow-down"></i> Download Resume
+</a>
+
+<div class="header-links">
+<a href="https://github.com/aarthibalakrishna/"><i class="fa-brands fa-github"></i></a>
+<a href="https://www.linkedin.com/in/aarthi-balakrishnan-b14020273/"><i class="fa-brands fa-linkedin"></i></a>
+</div>
 </header>
 
+<!-- KPI -->
+
 <section>
-  <h2>About Me</h2>
-  <p>
-    Entry-level MIS / Data Analyst with hands-on academic and project experience in operational reporting, KPI dashboards,
-    SLA tracking, reconciliation, and audit-ready processes. Skilled in SQL, Power BI, Excel, and Python with strong
-    exposure to governance documentation, stakeholder coordination, and continuous-improvement initiatives.
-  </p>
+<h2>Impact Snapshot</h2>
+
+<div class="kpis">
+<div class="card">
+<div class="kpi" data-target="12">0</div>
+<p>Dashboards Built</p>
+</div>
+
+<div class="card">
+<div class="kpi" data-target="5">0</div>
+<p>Major Projects</p>
+</div>
+
+<div class="card">
+<div class="kpi" data-target="300">0</div>
+<p>Students Trained</p>
+</div>
+</div>
 </section>
 
-<section>
-  <h2>Skills & Tools</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Core Strengths</h3>
-      <ul>
-        <li>Data Quality & Validation</li>
-        <li>MIS Reporting</li>
-        <li>KPI & SLA Tracking</li>
-        <li>Root-Cause Analysis</li>
-        <li>Process Documentation</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Tools</h3>
-      <ul>
-        <li>Excel (Power Query, PivotTables, XLOOKUP)</li>
-        <li>SQL (Joins, Aggregations, Subqueries)</li>
-        <li>Power BI (DAX, Modeling)</li>
-        <li>Python (Pandas, NumPy)</li>
-        <li>Streamlit, Matplotlib</li>
-      </ul>
-    </div>
-  </div>
-</section>
+<!-- PROJECTS -->
 
 <section>
-  <h2>Projects</h2>
-  <div class="grid">
+<h2>Projects</h2>
 
-    <div class="card">
-      <h3>Enterprise Data Quality Monitoring Dashboard</h3>
-      <p><strong>Tools:</strong> Power BI, SQL</p>
-      <ul>
-        <li>KPI dashboards for BU-level accuracy, duplicates, SLA compliance.</li>
-        <li>Audit workflows and anomaly detection.</li>
-        <li>Governance controls and process improvements.</li>
-      </ul>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>Smart Power Analytics</h3>
-      <p><strong>Tools:</strong> Python, SQL, Power BI, Streamlit</p>
-      <ul>
-        <li>Electricity forecasting and reporting system.</li>
-        <li>Validation and reconciliation controls.</li>
-      </ul>
-    </div>
+<div class="card">
+<img src="images/smart-power.png" class="project-img"
+onclick="openModal('powerModal')">
 
-    <div class="card">
-      <h3>Global Death Rate Analysis</h3>
-      <p><strong>Tools:</strong> Power BI, DAX</p>
-      <ul>
-        <li>Historical trend dashboards.</li>
-        <li>YOY and regional comparisons.</li>
-      </ul>
-    </div>
+<h3>Smart Power Analytics</h3>
 
-    <div class="card">
-      <h3>PyXL – Streamlit Excel Analytics</h3>
-      <p><strong>Tools:</strong> Python, Excel</p>
-      <ul>
-        <li>Automated MIS-style reports.</li>
-        <li>Enterprise workflow simulation.</li>
-      </ul>
-    </div>
+<p>
+<span class="badge">Python</span>
+<span class="badge">SQL</span>
+<span class="badge">Power BI</span>
+</p>
 
-  </div>
-</section>
+<div id="powerModal" class="modal">
+<div class="modal-content">
+<h2>Smart Power Analytics</h2>
+<img src="images/smart-power.png">
+<p>Electricity forecasting & reporting platform.</p>
+<button class="badge" onclick="closeModal('powerModal')">Close</button>
+</div>
+</div>
+</div>
 
-<section>
-  <h2>Experience</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Tutor – Programming & Data Analytics</h3>
-      <p>CSC Computer Education Pvt. Ltd. (Mar 2025 – Jan 2026)</p>
-      <ul>
-        <li>Produced MIS dashboards and reports.</li>
-        <li>Reconciliation and validation checks.</li>
-        <li>Reporting standards enforcement.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Consultant / Intern – Marketing Analytics</h3>
-      <p>Joy Technologies (Feb 2024 – Feb 2025)</p>
-      <ul>
-        <li>Research and data validation.</li>
-        <li>Stakeholder collaboration.</li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <h2>Education & Certifications</h2>
-  <div class="grid">
-
-    <div class="card">
-      <h3>Bachelor of Computer Applications</h3>
-      <p>Vels Institute of Science and Technology, Chennai</p>
-      <p>Specialization: Data Science</p>
-    </div>
-
-    <div class="card">
-      <h3>Certifications</h3>
-      <ul>
-        <li>Excel: Advanced Formulas and Functions</li>
-        <li>Excel: Managing and Analyzing Data</li>
-      </ul>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <footer>
-  <p>© 2026 Aarthi Balakrishnan — Data & MIS Analyst Portfolio</p>
+<p>© 2026 Aarthi Balakrishnan</p>
 </footer>
+
+<!-- ================= JS ================= -->
+
+<script>
+
+function toggleDark(){
+document.body.classList.toggle("dark");
+}
+
+function openModal(id){
+document.getElementById(id).style.display="flex";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+}
+
+/* KPI animation */
+
+const counters=document.querySelectorAll(".kpi");
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.dataset.target;
+const val=+counter.innerText;
+const inc=Math.ceil(target/80);
+
+if(val<target){
+counter.innerText=val+inc;
+setTimeout(update,25);
+}else{
+counter.innerText=target;
+}
+};
+update();
+});
+
+</script>
 
 </body>
 </html>
